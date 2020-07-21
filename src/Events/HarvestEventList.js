@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
+import Map from '../pg/map/map'
 //==================================
 //HarvestEventList
 //Display a List of Events
@@ -74,7 +75,10 @@ class HarvestEventList extends React.Component {
         )
 
         return (
-            <div> {harvestEventLists} </div >
+            <div> <div>{harvestEventLists} </div >
+                <div><Map /></div>
+            </div>
+
 
 
 

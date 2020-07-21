@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HarvestEventList from './Events/HarvestEventList'
+
 import './css/bulma.min.css';
 
 // class HarvestEventScreen extends React.Component {
@@ -27,5 +28,6 @@ import './css/bulma.min.css';
 ReactDOM.render(
 
     <HarvestEventList />,
+    //<Map />,
     document.getElementById('root')
 );
