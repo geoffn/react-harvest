@@ -3,7 +3,9 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import apigoogle from './mapapi'
 
 export class MapContainer extends React.Component {
-    render() {
+    render(
+        //add marker creation logic
+    ) {
         console.log('centerpoint = ' + this.props.centerPoint)
         return (
 
