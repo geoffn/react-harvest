@@ -5,7 +5,7 @@ import React from 'react';
 //Display individual Event
 function HarvestEvent(props) {
     return (
-        <div className="card" key={props.key}>
+        <div className="card" >
             <div className="card-content has-background-white-bis">
                 <div className="content" >
 

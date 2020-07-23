@@ -2,25 +2,13 @@ import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../pg/map/map'
-//==================================
-//HarvestEventList
-//Display a List of Events
-//Click do deep dive
+
 
 class HarvestEventList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            harvestEvents: [{
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            },
-            {
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            }]
+            harvestEvents: []
         }
     }
 
@@ -37,6 +25,7 @@ class HarvestEventList extends React.Component {
 
 
     }
+
 
     setHarvestEventList(eventLists) {
         //const newHarvestEventList = this.state.harvestEvents.slice()
@@ -59,11 +48,7 @@ class HarvestEventList extends React.Component {
     harvestEventListMaps() {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
         let maxLat, maxLong, minLat, minLong, centerLat, centerLong = null
-        let centerPoint = null
         let eventLocations = []
-        var i = 0
-
-
 
         this.state.harvestEvents.forEach((harvestEvent) => {
             eventLocations.push({
@@ -71,7 +56,7 @@ class HarvestEventList extends React.Component {
                 lng: harvestEvent.longitude,
                 id: harvestEvent._id
             })
-            i++
+
             if (!maxLat || maxLat < harvestEvent.latitude) { maxLat = harvestEvent.latitude }
 
             if (!minLat || minLat > harvestEvent.latitude) { minLat = harvestEvent.latitude }
@@ -83,10 +68,7 @@ class HarvestEventList extends React.Component {
 
         centerLat = (maxLat + minLat) / 2
         centerLong = (maxLong + minLong) / 2
-        centerPoint = {
-            lat: centerLat,
-            lng: centerLong
-        }
+
 
 
         this.setState({
@@ -99,7 +81,14 @@ class HarvestEventList extends React.Component {
             eventLocations: eventLocations
         })
         console.log(eventLocations)
+
+
     }
+
+    returnEventLocations() {
+        return this.props.eventLocations
+    }
+
 
     render() {
         const harvestEventLists = this.state.harvestEvents.map(harvest => {
@@ -121,7 +110,9 @@ class HarvestEventList extends React.Component {
 
         return (
             <div> <div>MAX={this.state.centerPoint}{harvestEventLists} </div >
-                <div><Map centerLat={this.state.centerLat} centerLong={this.state.centerLong} eventLocations={this.eventLocations} /></div>
+                <div><Map centerLat={this.state.centerLat}
+                    centerLong={this.state.centerLong}
+                    eventLocations={this.state.eventLocations} /></div>
             </div>
 
 
