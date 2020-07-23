@@ -109,12 +109,41 @@ class HarvestEventList extends React.Component {
         )
 
         return (
-            <div> <div>MAX={this.state.centerPoint}{harvestEventLists} </div >
-                <div><Map centerLat={this.state.centerLat}
-                    centerLong={this.state.centerLong}
-                    eventLocations={this.state.eventLocations} /></div>
-            </div>
+            <div>
+                < div className="tile is-vertical " >
+                    <div className="tile">
+                        <div className="tile is-parent">
+                            <article className="tile is-child notification is-info">
 
+                                <p className="title">Events <i className="fab fa-twitter-square"></i></p>
+                                <div className=".searchresults" id="searchresults">
+
+
+                                    <div>
+                                        <section className="Foodbanks">
+                                            {harvestEventLists}
+                                        </section>
+                                    </div>
+
+                                </div>
+
+                            </article>
+                        </div>
+                        <div className="tile is-parent">
+                            <article className="tile is-child notification is-success">
+                                <div className="content">
+                                    <Map centerLat={this.state.centerLat}
+                                        centerLong={this.state.centerLong}
+                                        eventLocations={this.state.eventLocations} />
+                                </div>
+
+                            </article>
+                        </div>
+                    </div>
+                </div >
+
+
+            </div >
 
 
 
