@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../pg/map/map'
+import header from '../header/header'
 
 
 class HarvestEventList extends React.Component {
@@ -69,7 +70,7 @@ class HarvestEventList extends React.Component {
         centerLat = (maxLat + minLat) / 2
         centerLong = (maxLong + minLong) / 2
 
-
+        let bounds = {}
 
         this.setState({
             maxLat: maxLat,
@@ -109,18 +110,31 @@ class HarvestEventList extends React.Component {
         )
 
         return (
-            <div>
+            <div>{header}
                 < div className="tile is-vertical " >
                     <div className="tile">
                         <div className="tile is-parent">
                             <article className="tile is-child notification is-info">
+                                <div className="navbar-start">
 
-                                <p className="title">Events <i className="fab fa-twitter-square"></i></p>
+                                    <p className="title navbar-item">Events <i className="fab fa-twitter-square"></i></p>
+
+                                    <div className="navbar-end">
+
+                                        <div className="navbar-item">
+                                            <div className="buttons">
+                                                <a className="button is-primary" href="/adduser">
+                                                    <strong>New Event</strong>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className=".searchresults" id="searchresults">
 
 
                                     <div>
-                                        <section className="Foodbanks">
+                                        <section className="Events">
                                             {harvestEventLists}
                                         </section>
                                     </div>

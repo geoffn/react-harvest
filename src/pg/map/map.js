@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import apigoogle from './mapapi'
-import EventMarker from '../../Map/Marker'
 
 
 export class MapContainer extends React.Component {
+
 
 
     render() {
         //const eventMarkers = this.props.eventLocations.map(eventLocation => {
 
         const eventLocations = this.props.eventLocations
+
 
         return (
             <div style={{ height: '10vh', width: '90%' }}>
@@ -22,6 +23,8 @@ export class MapContainer extends React.Component {
                         lat: this.props.centerLat,
                         lng: this.props.centerLong
                     }}>
+
+
 
                     < Marker onClick={this.onMarkerClick}
                         name={'Current location'} />
