@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const foodbank = (props) => (
+const Foodbank = (props) => (
 
     
     <div className="card">
@@ -19,4 +19,4 @@ const foodbank = (props) => (
     </div>
 );
 
-export default foodbank;
+export default Foodbank;

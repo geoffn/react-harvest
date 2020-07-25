@@ -1,11 +1,11 @@
 import React from 'react'
 import Aux from '../hoc/Aux'
-import HarvestEventList from './HarvestEventList'
+import FoodbankList from './FoodbankList'
 
 const EventLayout = (props) => (
 
     <Aux>
-        <HarvestEventList />
+        <FoodbankList />
     </Aux>
 )
 

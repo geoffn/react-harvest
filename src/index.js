@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import HarvestEventList from './Events/HarvestEventList'
 import Layout from './pg/Layout'
 import './css/bulma.min.css';
+import App from './App'
 
 // class HarvestEventScreen extends React.Component {
 //     render() {
@@ -22,13 +23,9 @@ import './css/bulma.min.css';
 // //==================================
 // //Add event/ edit event / volunteer event
 
-
-
-
 ReactDOM.render(
-    <Layout>
-        <HarvestEventList />
-    </Layout>,
-    //<Map />,
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
     document.getElementById('root')
 );

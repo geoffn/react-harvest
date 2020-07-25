@@ -1,10 +1,19 @@
 import React from 'react';
 import axios from 'axios'
-import HarvestEvent from './HarvestEvent'
+import Foodbank from './Foodbank'
 import Map from '../pg/map/map'
 import header from '../header/Header'
 
 
-class HarvestEventList extends React.Component {
+class FoodbankList extends React.Component {
+
+    render() {
+        return (
+            <div>Foodbanks</div>
+        )
+    }
+
 
 }
+
+export default FoodbankList

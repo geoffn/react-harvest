@@ -1,22 +1,25 @@
 import React from 'react';
-
+import { motion } from 'framer-motion'
 
 
 const Header = (
 
-    <div>
-
-        <div className="navbar-brand">
-            <a className="navbar-item" href="underconstruction.js">
-                <img src="/img/gfu_small.png" alt="logo"></img>
-                <h1>Grow For Us</h1>
-            </a>
+    <motion.div
+        initial={{ x: 250 }}
+        animate={{ x: 0 }}>
 
 
-
-        </div>
 
         <div id="navbarBasicExample" className="navbar-menu">
+            <div className="navbar-brand">
+                <a className="navbar-item" href="underconstruction.js">
+                    <img src="/img/gfu_small.png" alt="logo"></img>
+                    <h1>Grow For Us</h1>
+                </a>
+
+
+
+            </div>
             <div className="navbar-start">
                 <a className="navbar-item" href="underconstruction.js">
                     Home
@@ -84,7 +87,7 @@ const Header = (
             </div>
         </div>
 
-    </div>
+    </motion.div>
 
 )
 

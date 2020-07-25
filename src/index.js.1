@@ -1,114 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios'
+import HarvestEventList from './Events/HarvestEventList'
+import Layout from './pg/Layout'
+import './css/bulma.min.css';
 
-//=================================
-//HarvestEvent
-//Display individual Event
-function HarvestEvent(props) {
+// class HarvestEventScreen extends React.Component {
+//     render() {
+//         return (
+//             <div className="game">
+//                 <div className="game-board">
+//                     <HarvestEventList />
+//                 </div>
+//                 <div className="game-info">
+//                     <div>{/* status */}</div>
+//                     <ol>{/* TODO */}</ol>
+//                 </div>
+//             </div>
+//         );
+//     }
+// }
+// //==================================
+// //Add event/ edit event / volunteer event
+
+function Index() {
+
+
+    //ReactDOM.render(
     return (
-        <div>
-
-            <div style={{ margin: "0 auto", width: "350px" }}>
-                <h3>Event: {props.description} </h3>
-                <h3>Location: {props.address1} </h3>
-                <h3>Sponsor: {props.ownerName} </h3>
-            </div>
-        </div>
+        < Layout >
+            <HarvestEventList />
+        </Layout >,
+        //<Map />,
+        document.getElementById('root')
     )
-}
-
-
-//==================================
-//HarvestEventList
-//Display a List of Events
-//Click do deep dive
-
-class HarvestEventList extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            harvestEvents: [{
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            },
-            {
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            }]
-        }
-    }
-
-    componentDidMount() {
-        console.log("in Componentdidmount")
-        axios.get('http://localhost:3001/event')
-            .then(res => {
-
-                console.log(res.data)
-                //this.setState({ foodbanks: res.data.results })
-            })
-        this.setHarvestEventList()
-    }
-
-    setHarvestEventList() {
-        const newHarvestEventList = this.state.harvestEvents.slice()
-        console.log("in setharvest event list")
-        newHarvestEventList[0] = {
-            description: "desc1",
-            address1: "add",
-            ownerName: "geoff"
-        }
-        console.log(newHarvestEventList[0])
-        this.setState({
-            harvestEvents: newHarvestEventList
-        })
-
-    }
-
-    renderHarvestEvent(i) {
-        //console.log("rendering")
-        return (
-            < HarvestEvent
-                description={this.state.harvestEvents[i].description}
-                address1={this.state.harvestEvents[i].address1}
-                ownerName={this.state.harvestEvents[i].ownerName}
-
-            />)
-    }
-    render() {
-
-        return (
-            <div> help {this.renderHarvestEvent(0)} </div >
-        )
-    }
 
 }
 
-class HarvestEventScreen extends React.Component {
-    render() {
-        return (
-            <div className="game">
-                <div className="game-board">
-                    <HarvestEventList />
-                </div>
-                <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
-                </div>
-            </div>
-        );
-    }
-}
-//==================================
-//Add event/ edit event / volunteer event
-
-
-
-
-ReactDOM.render(
-
-    <HarvestEventScreen />,
-    document.getElementById('root')
-);
+export default Index
