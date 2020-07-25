@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HarvestEventList from './Events/HarvestEventList'
-import Header from '../src/header/header'
+import Header from './header/Header'
 import './css/bulma.min.css';
 
 // class HarvestEventScreen extends React.Component {

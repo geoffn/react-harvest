@@ -2,20 +2,23 @@ import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../pg/map/map'
-import header from '../header/header'
+import Header from '../header/Header'
+import EventAdd from './EventAdd'
 
 
 class HarvestEventList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            harvestEvents: []
+            harvestEvents: [],
+            addressCode: '98225',
+            eventAddVisible: false
         }
     }
 
     componentDidMount() {
         console.log("in Componentdidmount")
-        axios.get('http://localhost:3001/event')
+        axios.get('http://localhost:3001/event/addressCode/' + this.state.addressCode)
             .then(res => {
 
                 console.log(res.data)
@@ -46,6 +49,17 @@ class HarvestEventList extends React.Component {
 
     }
 
+    seteventAddVisible = (value) => {
+        if (value === 'add') {
+            this.setState({ eventAddVisible: true })
+        }
+        if (value === 'cancel') {
+            this.setState({ eventAddVisible: false })
+        }
+        console.log("seteven")
+        console.log(this.state.eventAddVisible)
+    }
+
     harvestEventListMaps() {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
         let maxLat, maxLong, minLat, minLong, centerLat, centerLong = null
@@ -70,8 +84,6 @@ class HarvestEventList extends React.Component {
         centerLat = (maxLat + minLat) / 2
         centerLong = (maxLong + minLong) / 2
 
-        let bounds = {}
-
         this.setState({
             maxLat: maxLat,
             minLat: minLat,
@@ -92,6 +104,7 @@ class HarvestEventList extends React.Component {
 
 
     render() {
+
         const harvestEventLists = this.state.harvestEvents.map(harvest => {
             return (
                 < HarvestEvent
@@ -110,7 +123,7 @@ class HarvestEventList extends React.Component {
         )
 
         return (
-            <div>{header}
+            <div>{Header}
                 < div className="tile is-vertical " >
                     <div className="tile">
                         <div className="tile is-parent">
@@ -123,7 +136,7 @@ class HarvestEventList extends React.Component {
 
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <a className="button is-primary" href="/adduser">
+                                                <a className="button is-primary" onClick={() => this.seteventAddVisible('add')}>
                                                     <strong>New Event</strong>
                                                 </a>
                                             </div>
@@ -131,6 +144,7 @@ class HarvestEventList extends React.Component {
                                     </div>
                                 </div>
                                 <div className=".searchresults" id="searchresults">
+                                    <EventAdd eventAddVisible={this.state.eventAddVisible} seteventAddVisible={this.seteventAddVisible} />
 
 
                                     <div>
@@ -146,9 +160,10 @@ class HarvestEventList extends React.Component {
                         <div className="tile is-parent">
                             <article className="tile is-child notification is-success">
                                 <div className="content">
+                                    {/* Commended out so map does not load everytime
                                     <Map centerLat={this.state.centerLat}
                                         centerLong={this.state.centerLong}
-                                        eventLocations={this.state.eventLocations} />
+        eventLocations={this.state.eventLocations} */}
                                 </div>
 
                             </article>
