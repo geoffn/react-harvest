@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../pg/map/map'
-import Header from '../header/Header'
+import Header from '../Header/Header'
 import EventAdd from './EventAdd'
 
 
