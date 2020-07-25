@@ -10,21 +10,31 @@ class HarvestEventList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            harvestEvents: [],
-            addressCode: '98225',
+            harvestEvents: [{
+                description: "desc",
+                address1: "add",
+                ownerName: "geoff"
+            },
+            {
+                description: "desc",
+                address1: "add",
+                ownerName: "geoff"
+            }],
+            addressCode: '',
             eventAddVisible: false
         }
     }
 
     componentDidMount() {
         console.log("in Componentdidmount")
-        axios.get('http://localhost:3001/event/addressCode/' + this.state.addressCode)
+        axios.get('http://localhost:3001/event')
             .then(res => {
 
                 console.log(res.data)
                 //this.setState({ foodbanks: res.data.results })
                 //this.setState({ harvestEvents: res.data.results })
-                this.setHarvestEventList(res.data.results)
+                console.log(res.data.result)
+                this.setHarvestEventList(res.data.result)
             })
 
 
@@ -33,18 +43,13 @@ class HarvestEventList extends React.Component {
 
     setHarvestEventList(eventLists) {
         //const newHarvestEventList = this.state.harvestEvents.slice()
-
+        const eventtt = eventLists
         console.log("in setharvest event list")
+        console.log(eventtt)
 
-        // newHarvestEventList[0] = {
-        //     description: "desc1",
-        //     address1: "add",
-        //     ownerName: "geoff"
-        // }
-        //console.log(newHarvestEventList[0])
-        this.setState({
-            harvestEvents: eventLists
-        })
+        this.setState({ harvestEvents: eventLists })
+        console.log(this.state.harvestEvents)
+        console.log("set state ")
         this.harvestEventListMaps()
 
     }
@@ -84,7 +89,7 @@ class HarvestEventList extends React.Component {
         centerLat = (maxLat + minLat) / 2
         centerLong = (maxLong + minLong) / 2
 
-        this.setState({
+        this.setState = ({
             maxLat: maxLat,
             minLat: minLat,
             maxLong: maxLong,
