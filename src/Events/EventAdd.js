@@ -4,17 +4,42 @@ class EventAdd extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = { eventAddVisible: false }
+
+        this.handleClick = this.handleClick.bind(this)
+        this.handleCancel = this.handleCancel.bind(this)
 
     }
 
 
+    handleClick() {
+        this.setState(state => ({
+            eventAddVisible: true
+        }))
+    }
+    handleCancel() {
+        this.setState(state => ({
+            eventAddVisible: false
+        }))
+    }
 
     render() {
 
 
+
         return (
             <div>
-                {this.props.eventAddVisible && (<div className="content" id="addEventDiv" >
+                {!this.state.eventAddVisible && (<div className="navbar-end">
+
+                    <div className="navbar-item">
+                        <div className="buttons">
+                            <a className="button is-primary" onClick={this.handleClick} >
+                                <strong>New Event</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>)}
+                {this.state.eventAddVisible && (<div className="content" id="addEventDiv" >
                     <form id="eventAddForm">
                         <div className="field">
                             <div className="control">
@@ -122,8 +147,9 @@ class EventAdd extends React.Component {
                             </div>
                         </div>
                         <div className="buttons">
-                            <button className="button is-primary" onClick={() => this.props.seteventAddVisible('cancel')}>Cancel</button>
-
+                            <a className="button is-primary" onClick={this.handleCancel} >
+                                <strong>Cancel</strong>
+                            </a>
                         </div>
                         <p>&nbsp;</p>
 

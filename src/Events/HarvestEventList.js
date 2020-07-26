@@ -9,20 +9,13 @@ import EventAdd from './EventAdd'
 class HarvestEventList extends React.Component {
     constructor(props) {
         super(props)
+
         this.state = {
-            harvestEvents: [{
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            },
-            {
-                description: "desc",
-                address1: "add",
-                ownerName: "geoff"
-            }],
-            addressCode: '',
-            eventAddVisible: false
+            harvestEvents: [],
+            addressCode: ''
         }
+
+
     }
 
     componentDidMount() {
@@ -30,10 +23,8 @@ class HarvestEventList extends React.Component {
         axios.get('http://localhost:3001/event')
             .then(res => {
 
-                console.log(res.data)
-                //this.setState({ foodbanks: res.data.results })
-                //this.setState({ harvestEvents: res.data.results })
-                console.log(res.data.result)
+                //console.log(res.data)
+                //console.log(res.data.result)
                 this.setHarvestEventList(res.data.result)
             })
 
@@ -42,28 +33,14 @@ class HarvestEventList extends React.Component {
 
 
     setHarvestEventList(eventLists) {
-        //const newHarvestEventList = this.state.harvestEvents.slice()
-        const eventtt = eventLists
-        console.log("in setharvest event list")
-        console.log(eventtt)
+
 
         this.setState({ harvestEvents: eventLists })
-        console.log(this.state.harvestEvents)
-        console.log("set state ")
         this.harvestEventListMaps()
 
     }
 
-    seteventAddVisible = (value) => {
-        if (value === 'add') {
-            this.setState({ eventAddVisible: true })
-        }
-        if (value === 'cancel') {
-            this.setState({ eventAddVisible: false })
-        }
-        console.log("seteven")
-        console.log(this.state.eventAddVisible)
-    }
+
 
     harvestEventListMaps() {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
@@ -76,7 +53,7 @@ class HarvestEventList extends React.Component {
                 lng: harvestEvent.longitude,
                 id: harvestEvent._id
             })
-
+            //Find the boundries of the map and also calculate the centerpoint.
             if (!maxLat || maxLat < harvestEvent.latitude) { maxLat = harvestEvent.latitude }
 
             if (!minLat || minLat > harvestEvent.latitude) { minLat = harvestEvent.latitude }
@@ -98,7 +75,7 @@ class HarvestEventList extends React.Component {
             centerLong: centerLong,
             eventLocations: eventLocations
         })
-        console.log(eventLocations)
+        //console.log(eventLocations)
 
 
     }
@@ -141,7 +118,7 @@ class HarvestEventList extends React.Component {
 
                                         <div className="navbar-item">
                                             <div className="buttons">
-                                                <a className="button is-primary" onClick={() => this.seteventAddVisible('add')}>
+                                                <a className="button is-primary" >
                                                     <strong>New Event</strong>
                                                 </a>
                                             </div>
@@ -149,7 +126,7 @@ class HarvestEventList extends React.Component {
                                     </div>
                                 </div>
                                 <div className=".searchresults" id="searchresults">
-                                    <EventAdd eventAddVisible={this.state.eventAddVisible} seteventAddVisible={this.seteventAddVisible} />
+                                    <EventAdd />
 
 
                                     <div>
