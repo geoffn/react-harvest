@@ -54,7 +54,7 @@ class EventAdd extends React.Component {
     //Update the state with the new form vaules.
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(e.target.name + " " + e.target.value)
+        //console.log(e.target.name + " " + e.target.value)
     }
 
     //Show the new event form
