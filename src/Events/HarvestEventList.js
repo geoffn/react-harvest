@@ -114,16 +114,7 @@ class HarvestEventList extends React.Component {
 
                                     <p className="title navbar-item">Events <i className="fab fa-twitter-square"></i></p>
 
-                                    <div className="navbar-end">
 
-                                        <div className="navbar-item">
-                                            <div className="buttons">
-                                                <a className="button is-primary" >
-                                                    <strong>New Event</strong>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div className=".searchresults" id="searchresults">
                                     <EventAdd />
