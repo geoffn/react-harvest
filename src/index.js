@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HarvestEventList from './Events/HarvestEventList'
-import Layout from './pg/Layout'
 import './css/bulma.min.css';
 import App from './App'
 

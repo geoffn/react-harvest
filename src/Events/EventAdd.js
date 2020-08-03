@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React from 'react'
 import axios from 'axios'
 
 class EventAdd extends React.Component {
@@ -83,9 +82,8 @@ class EventAdd extends React.Component {
 
                     <div className="navbar-item">
                         <div className="buttons">
-                            <a className="button is-primary" onClick={this.handleClick} >
-                                <strong>New Event</strong>
-                            </a>
+                            <button className="button is-primary" onClick={this.handleClick} >New Event</button>
+
                         </div>
                     </div>
                 </div>)}
@@ -198,14 +196,11 @@ class EventAdd extends React.Component {
                                 </div>
                             </div>
                             <div className="buttons">
-                                <a className="button is-primary" onClick={this.onSubmit} >
-                                    <strong>Submit</strong>
-                                </a>
-                            </div>
-                            <div className="buttons">
-                                <a className="button is-primary" onClick={this.handleCancel} >
-                                    <strong>Cancel</strong>
-                                </a>
+                                <button className="button is-primary" onClick={this.onSubmit} >Submit</button>
+
+
+                                <button className="button is-primary" onClick={this.handleCancel} >Cancel</button>
+
                             </div>
 
                             <p>&nbsp;</p>

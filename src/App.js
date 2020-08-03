@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from './pg/Layout'
 import './css/bulma.min.css';
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import EventLayout from './Events/EventLayout'

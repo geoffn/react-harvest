@@ -1,35 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import apigoogle from './mapapi'
 
 
 export class MapContainer extends React.Component {
 
+    constructor(props) {
+        super(props)
+    }
+
 
 
     render() {
-        //const eventMarkers = this.props.eventLocations.map(eventLocation => {
 
         const eventLocations = this.props.eventLocations
 
 
         return (
             <div style={{ height: '10vh', width: '90%' }}>
+
                 <Map
 
                     google={this.props.google} zoom={14}
                     style={{ width: '100%', height: '100' }}
-                    initialCenter={{
+                    center={{
                         lat: this.props.centerLat,
                         lng: this.props.centerLong
                     }}>
 
 
 
-                    < Marker onClick={this.onMarkerClick}
+                    {/*< Marker onClick={this.onMarkerClick}
                         name={'Current location'} />
                     <Marker title={'The marker`s title will appear as a tooltip.'} name={'SOMA'} position={{ lat: 48.706, lng: -122.446 }} />
-
+                */}
                     {eventLocations.map(item => (
                         <Marker
                             key={item.id}
@@ -45,6 +49,7 @@ export class MapContainer extends React.Component {
                         </div>
                     </InfoWindow>
                 </Map >
+
             </div>
         );
 

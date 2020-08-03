@@ -9,36 +9,85 @@ import EventAdd from './EventAdd'
 class HarvestEventList extends React.Component {
     constructor(props) {
         super(props)
+        this._isMounted = false
 
         this.state = {
             harvestEvents: [],
-            addressCode: ''
+            addressCode: '',
+            eventSearch: null
         }
-
+        //this.onChange = this.onChange.bind(this)
 
     }
 
     componentDidMount() {
-        console.log("in Componentdidmount")
-        axios.get('http://localhost:3001/event')
-            .then(res => {
+        this._isMounted = true
+        let baseURL = 'http://localhost:3001/event'
 
-                //console.log(res.data)
-                //console.log(res.data.result)
-                this.setHarvestEventList(res.data.result)
+        //If search criteria is provided then search
+
+
+        console.log("in Componentdidmount")
+        axios.get(baseURL)
+            .then(res => {
+                if (this._isMounted) {
+                    //console.log(res.data)
+                    //console.log(res.data.result)
+                    //this.setHarvestEventList()
+                    this.setState({ harvestEvents: res.data.result })
+                    this.harvestEventListMaps()
+                }
+            })
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false
+    }
+
+    onClickSearch = async () => {
+        const eventSearch = this.state.eventSearch
+
+        let baseURL = 'http://localhost:3001/event/search/' + eventSearch
+
+        //If search criteria is provided then search
+
+
+        console.log("search" + eventSearch)
+        let results = await axios.get(baseURL)
+            .catch((e) => {
+                console.log(e)
             })
 
+        console.log(results)
+        //.then(res => {
 
-    }
-
-
-    setHarvestEventList(eventLists) {
-
-
-        this.setState({ harvestEvents: eventLists })
+        //console.log(res.data)
+        //console.log(res.data.result)
+        //this.setHarvestEventList()
+        console.log(results.data)
+        this.setState({ harvestEvents: results.data.results })
         this.harvestEventListMaps()
 
+
+        //})
+
+
+        //Create search
+
+        //Run Search
+
+        //Return results
+
+        //One search
+
     }
+
+    //As the search form is changed, update state.
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value })
+        console.log(e.target.name + " " + e.target.value)
+    }
+
 
 
 
@@ -46,6 +95,10 @@ class HarvestEventList extends React.Component {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
         let maxLat, maxLong, minLat, minLong, centerLat, centerLong = null
         let eventLocations = []
+        this.setState({
+            centerLat: null,
+            centerLong: null
+        })
 
         this.state.harvestEvents.forEach((harvestEvent) => {
             eventLocations.push({
@@ -66,7 +119,9 @@ class HarvestEventList extends React.Component {
         centerLat = (maxLat + minLat) / 2
         centerLong = (maxLong + minLong) / 2
 
-        this.setState = ({
+        console.log("CLat" + centerLat + " cLng " + centerLong)
+
+        this.setState({
             maxLat: maxLat,
             minLat: minLat,
             maxLong: maxLong,
@@ -109,7 +164,12 @@ class HarvestEventList extends React.Component {
                 < div className="tile is-vertical " >
                     <div className="tile">
                         <div className="tile is-parent">
+
                             <article className="tile is-child notification is-info">
+                                <div className="buttons">
+                                    <input className="input is-primary" name="eventSearch" type="text" placeholder="Zip or Ciry,State" onChange={(this.onChange)}></input>
+                                    <button className="button is-primary" onClick={this.onClickSearch} >Event Search</button>
+                                </div>
                                 <div className="navbar-start">
 
                                     <p className="title navbar-item">Events <i className="fab fa-twitter-square"></i></p>
@@ -134,9 +194,10 @@ class HarvestEventList extends React.Component {
                             <article className="tile is-child notification is-success">
                                 <div className="content">
                                     {/* Commended out so map does not load everytime
+                                     */}
                                     <Map centerLat={this.state.centerLat}
                                         centerLong={this.state.centerLong}
-        eventLocations={this.state.eventLocations} */}
+                                        eventLocations={this.state.eventLocations} />
                                 </div>
 
                             </article>
