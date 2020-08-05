@@ -1,0 +1,132 @@
+/*! Color scheme E4F9F5, 30E3CA, 11999E, 40514E !*/
+
+body{
+    max-width: 960px;
+    padding-top: 20px;
+    margin: auto;
+}
+
+.header-link {
+    color: #30e3ca;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    
+}
+a.header-link:hover{
+    color: #11999e;
+    text-decoration: underline;
+}
+a.header-link:visited{
+    color: #30e3ca;
+    font-weight: bold;
+    text-decoration: none;
+}
+.header-right{
+    float: right;
+}
+.header-button {
+    width: 150px;
+    border: 4px solid #11999e;
+    background: #11999e;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+     
+}
+.header-button-border{
+    border-radius: 10px;
+    padding: 10px;
+    border-spacing: 10px;
+}
+
+.search-bar-div {
+    max-width: 500px;
+    margin: auto;
+    padding-bottom: 20px;
+    
+}
+.search-bar-input {
+    width: 400px;
+    border: 4px solid #11999e
+}
+.search-bar-input-border {
+    border-radius: 10px;
+    padding: 10px;
+}
+.search-bar-button {
+    width: 150px;
+    border: 4px solid #11999e;
+    background: #11999e;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+     
+}
+.search-bar-button-border{
+    border-radius: 10px;
+    padding: 10px;
+    border-spacing: 10px;
+}
+.search-bar-button:focus {
+    text-decoration: none;
+}
+.event-list-article {
+    background-color: #11999e;
+    max-width: 440px;
+    padding: 10px;
+    padding-top: 10px;
+}
+.harvest-event-card
+{
+    border: 0px solid;
+    border-radius: 5px;
+    box-shadow: 5px 5px blue;
+    
+}
+.harvest-event-card-title{
+    font-size: 30px;
+    padding: 10px;
+    font-weight: bold;
+}
+.harvest-event-card-address{
+    padding: 10px;
+    font-size: 10px;
+}
+.harvest-event-container{
+    width: 900px;
+    background-color: #11999e;
+    padding-top: 100px;
+    min-height: 500px;
+}
+.harvest-event-main-div{
+    width: 1000px;
+    float: left;
+    margin: 0 auto;
+
+}
+.harvest-event-left-wrap{
+    width: 550px;
+    float:left;
+    margin: 0 auto;
+}
+.harvest-event-left-div{
+    
+    border-radius: 10px;
+    margin:5px;
+   
+
+}
+.harvest-event-right-wrap{
+    width: 450px;
+    float:left;
+    margin: 0 auto;
+}
+.harvest-event-right-div{
+    border-radius: 10px;
+    margin:5px;
+    min-height: 500px;
+    
+}
+
+

@@ -5,28 +5,16 @@ import React from 'react';
 //Display individual Event
 function HarvestEvent(props) {
     return (
-        <div className="card" >
-            <div className="card-content has-background-white-bis">
-                <div className="content" >
+        <div className="harvest-event-card">
 
-                    <h1>{props.title}</h1>
-                    <div >
-                        <div> <h3>{props.description}</h3> </div>
-                        <div className="Address">{props.address1}
-                            <p>{props.city}, {props.stateRegion} {props.addressCode}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        // <div>
+            <p className="harvest-event-card-title">{props.title}</p>
+            {props.description}
+            <p className="harvest-event-card-address">{props.address1}
+                {props.city}, {props.stateRegion} {props.addressCode}
+            </p>
 
-        //     <div style={{ margin: "0 auto", width: "350px" }}>
-        //         <h3>Event: {props.description} </h3>
-        //         <h3>Location: {props.address1} </h3>
-        //         <h3>Sponsor: {props.ownerName} </h3>
-        //     </div>
-        // </div>
+        </div >
+
     )
 }
 

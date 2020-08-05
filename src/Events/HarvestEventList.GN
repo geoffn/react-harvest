@@ -63,12 +63,29 @@ class HarvestEventList extends React.Component {
                 console.log(e)
             })
 
+        console.log(results)
+        //.then(res => {
 
+        //console.log(res.data)
+        //console.log(res.data.result)
+        //this.setHarvestEventList()
         console.log(results.data)
         this.setState({ harvestEvents: results.data.results }, () => {
             this.harvestEventListMaps()
         })
 
+
+
+        //})
+
+
+        //Create search
+
+        //Run Search
+
+        //Return results
+
+        //One search
 
     }
 
@@ -78,11 +95,10 @@ class HarvestEventList extends React.Component {
         this.setState({ harvestEvents: searchResults })
         this.harvestEventListMaps()
 
-
         this.setState({ currentRecords: this.state.harvestEvents.length })
 
-    }
 
+    }
 
 
     //As the search form is changed, update state.
@@ -94,7 +110,7 @@ class HarvestEventList extends React.Component {
 
 
 
-    harvestEventListMaps = () => {
+    harvestEventListMaps() {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
         let maxLat, maxLong, minLat, minLong, centerLat, centerLong = null
         let eventLocations = []
@@ -124,8 +140,6 @@ class HarvestEventList extends React.Component {
 
         console.log("CLat" + centerLat + " cLng " + centerLong)
 
-
-
         this.setState({
             maxLat: maxLat,
             minLat: minLat,
@@ -135,6 +149,8 @@ class HarvestEventList extends React.Component {
             centerLong: centerLong,
             eventLocations: eventLocations
         })
+
+
 
     }
 
@@ -166,51 +182,47 @@ class HarvestEventList extends React.Component {
 
             <div>{Header}
 
-                < div className="tile is-vertical " >
-                    <div className="tile">
-                        <div className="tile is-parent">
-                            <SearchEvent searchCallback={this.onSearchCallback} />
-                        </div>
-                    </div>
-                </ div>
+                < div>
 
-                {this.state.currentRecords > 0 && (
-                    <div className="harvest-main-div">
-                        <div className="harvest-event-left-wrap">
-                            <div className="tile is-parent is-vertical">
-                                <article className="tile is-child notification is-info">
-                                    <div>
-                                        <EventAdd />
+                    <SearchEvent searchCallback={this.onSearchCallback} />
+
+                </div>
 
 
-                                        <div>
-                                            <section className="Events">
-                                                {harvestEventLists}
-                                            </section>
-                                        </div>
+                {
+                    this.state.currentRecords > 0 && (
 
-                                    </div>
+                        <div className="harvest-event-container">
+                            <div className="harvest-event-left-wrap">
+                                <div className="harvest-event-left-div">
 
-                                </article>
+                                    <p >Events </p>
+                                    <EventAdd />
+                                    <section >
+                                        {harvestEventLists}
+                                    </section>
+
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="tile is-parent">
-                            <article className="tile is-child ">
-                                <div >
-                                    {/* Commended out so map does not load everytime*/}
+                            <div className="harvest-event-right-wrap">
+                                <div className="harvest-event-right-div">
 
-                                    <Map key={this.state.currentRecords}
-                                        centerLat={this.state.centerLat}
+                                    {/* Commended out so map does not load everytime
+                                     */}
+                                    <Map centerLat={this.state.centerLat}
                                         centerLong={this.state.centerLong}
                                         eventLocations={this.state.eventLocations} />
-                                </div>
 
-                            </article>
+
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                )}
-            </div>
+                    )
+                }
+            </div >
 
 
 

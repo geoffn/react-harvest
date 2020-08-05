@@ -7,6 +7,13 @@ export class MapContainer extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            center: {
+                lat: this.props.centerLat,
+                lng: this.props.centerLong
+            }
+        }
     }
 
 
@@ -16,24 +23,38 @@ export class MapContainer extends React.Component {
         const eventLocations = this.props.eventLocations
 
 
+        if (this.state.center.lat != this.props.centerLat) {
+            this.setState({
+                center: {
+                    lat: this.props.centerLat,
+                    lng: this.props.centerLong
+                }
+            })
+        }
+
+        const containerStyle = {
+            position: 'relative',
+            width: '500px',
+            height: '600px'
+        }
+
+
         return (
             <div style={{ height: '10vh', width: '90%' }}>
 
-                <Map
 
+                <Map
+                    containerStyle={containerStyle}
                     google={this.props.google} zoom={14}
                     style={{ width: '100%', height: '100' }}
-                    center={{
-                        lat: this.props.centerLat,
-                        lng: this.props.centerLong
-                    }}>
-
-
-
-                    {/*< Marker onClick={this.onMarkerClick}
-                        name={'Current location'} />
-                    <Marker title={'The marker`s title will appear as a tooltip.'} name={'SOMA'} position={{ lat: 48.706, lng: -122.446 }} />
-                */}
+                    initialCenter={
+                        this.state.center
+                    }
+                    center={
+                        this.state.center
+                    }>
+                    {console.log("Mlat:" + this.props.centerLat)}
+                    {console.log("MLng:" + this.props.centerLong)}
                     {eventLocations.map(item => (
                         <Marker
                             key={item.id}
@@ -50,7 +71,7 @@ export class MapContainer extends React.Component {
                     </InfoWindow>
                 </Map >
 
-            </div>
+            </div >
         );
 
     }
