@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
-import Map from '../pg/map/map'
+import Map from '../Map/map'
 import Header from '../Header/Header'
 import EventAdd from './AddEvent/AddEvent.js.bak'
 import EventAddFormik from './AddEvent/AddEvent'
-import SearchEvent from '../MiscComponents/SearchEventFormik'
+import SearchEvent from './SearchEvents/SearchEvent'
 
 
 class HarvestEventList extends React.Component {

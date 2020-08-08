@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
-function SearchEventForm(props) {
+function SearchEvent(props) {
 
     const validationSchema = Yup.object({
         eventSearch: Yup.string().required('Required!')
@@ -66,4 +66,4 @@ function SearchEventForm(props) {
     )
 }
 
-export default SearchEventForm
+export default SearchEvent

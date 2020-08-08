@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../Header/Header'
+import Header from '../../Header/Header'
 import axios from 'axios'
-import HarvestEvent from '../Events/HarvestEvent'
+import HarvestEvent from '../HarvestEvent'
 
 class SearchEvent extends React.Component {
 

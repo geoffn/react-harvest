@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import Foodbank from './Foodbank'
-import Map from '../pg/map/map'
+import Map from '../Map/map'
 import header from '../Header/Header'
 
 

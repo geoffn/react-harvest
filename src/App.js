@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import EventLayout from './Events/EventLayout'
 import FoodbankLayout from './Foodbanks/FoodbankLayout'
 import FourZeroFour from './FourZeroFour'
-import SearchEvent from './MiscComponents/SearchEvent'
+import SearchEvent from './Events/SearchEvents/SearchEvent'
 import AddEventLayout from './Events/AddEvent/AddEventLayout'
 
 function App() {
