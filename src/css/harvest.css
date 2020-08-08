@@ -7,7 +7,7 @@ body{
 }
 
 .header-link {
-    color: #30e3ca;
+    color: #11999e;
     font-weight: bold;
     text-decoration: none;
     padding: 20px;
@@ -18,7 +18,7 @@ a.header-link:hover{
     text-decoration: underline;
 }
 a.header-link:visited{
-    color: #30e3ca;
+    color: #11999e;
     font-weight: bold;
     text-decoration: none;
 }
@@ -48,8 +48,23 @@ a.header-link:visited{
 }
 .search-bar-input {
     width: 400px;
-    border: 4px solid #11999e
+    border: 2px solid #11999e
 }
+
+.event-form-input {
+    border: 2px solid #11999e
+}
+.event-form-input:focus {
+    border: 2px solid #11999e
+}
+.event-form-input:hover {
+    border: 2px solid #11999e
+}
+.event-form-select{
+    color: #11999e;
+    font-weight: bold;
+}
+
 .search-bar-input-border {
     border-radius: 10px;
     padding: 10px;
@@ -71,6 +86,9 @@ a.header-link:visited{
 .search-bar-button:focus {
     text-decoration: none;
 }
+.input-error{
+    color: red;
+}
 .event-list-article {
     background-color: #11999e;
     max-width: 440px;
@@ -81,7 +99,7 @@ a.header-link:visited{
 {
     border: 0px solid;
     border-radius: 5px;
-    box-shadow: 5px 5px blue;
+    box-shadow: 5px 5px #11999e;
     
 }
 .harvest-event-card-title{
@@ -90,7 +108,7 @@ a.header-link:visited{
     font-weight: bold;
 }
 .harvest-event-card-address{
-    padding: 10px;
+    padding: 1px;
     font-size: 10px;
 }
 .harvest-event-container{

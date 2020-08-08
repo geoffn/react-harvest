@@ -7,36 +7,35 @@ class SearchEvent extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            eventSearch: null
+        }
     }
 
     onClickSearch = async () => {
-        const eventSearch = this.state.eventSearch
-
+        let eventSearch = null
+        if (this.state.eventSearch) {
+            eventSearch = this.state.eventSearch
+        }
         let baseURL = 'http://localhost:3001/event/search/' + eventSearch
 
         //If search criteria is provided then search
 
 
-        console.log("search" + eventSearch)
         let results = await axios.get(baseURL)
             .catch((e) => {
                 console.log(e)
             })
 
-        console.log(results)
-        //.then(res => {
 
-        //console.log(res.data)
-        //console.log(res.data.result)
-        //this.setHarvestEventList()
-        console.log(results.data)
 
         this.props.searchCallback(results.data.results)
     }
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(e.target.name + " " + e.target.value)
+
     }
 
     render() {

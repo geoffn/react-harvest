@@ -3,8 +3,9 @@ import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../pg/map/map'
 import Header from '../Header/Header'
-import EventAdd from './EventAdd'
-import SearchEvent from '../MiscComponents/SearchEvent'
+import EventAdd from './AddEvent/AddEvent.js.bak'
+import EventAddFormik from './AddEvent/AddEvent'
+import SearchEvent from '../MiscComponents/SearchEventFormik'
 
 
 class HarvestEventList extends React.Component {
@@ -32,7 +33,6 @@ class HarvestEventList extends React.Component {
         //If search criteria is provided then search
 
 
-        console.log("in Componentdidmount")
         axios.get(baseURL)
             .then(res => {
                 if (this._isMounted) {
@@ -56,15 +56,11 @@ class HarvestEventList extends React.Component {
 
         //If search criteria is provided then search
 
-
-        console.log("search" + eventSearch)
         let results = await axios.get(baseURL)
             .catch((e) => {
                 console.log(e)
             })
 
-
-        console.log(results.data)
         this.setState({ harvestEvents: results.data.results }, () => {
             this.harvestEventListMaps()
         })
@@ -88,7 +84,6 @@ class HarvestEventList extends React.Component {
     //As the search form is changed, update state.
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
-        console.log(e.target.name + " " + e.target.value)
     }
 
 
@@ -96,11 +91,11 @@ class HarvestEventList extends React.Component {
 
     harvestEventListMaps = () => {
         //TODO: Cycle through HarvestEvents and pull out markers, and max/min,center lat/long for maps
-        let maxLat, maxLong, minLat, minLong, centerLat, centerLong = null
+        let maxLat, maxLng, minLat, minLng, centerLat, centerLng = null
         let eventLocations = []
         this.setState({
             centerLat: null,
-            centerLong: null
+            centerLng: null
         })
 
         this.state.harvestEvents.forEach((harvestEvent) => {
@@ -114,33 +109,27 @@ class HarvestEventList extends React.Component {
 
             if (!minLat || minLat > harvestEvent.latitude) { minLat = harvestEvent.latitude }
 
-            if (!maxLong || maxLong < harvestEvent.longitude) { maxLong = harvestEvent.longitude }
+            if (!maxLng || maxLng < harvestEvent.longitude) { maxLng = harvestEvent.longitude }
 
-            if (!minLong || minLong > harvestEvent.longitude) { minLong = harvestEvent.longitude }
+            if (!minLng || minLng > harvestEvent.longitude) { minLng = harvestEvent.longitude }
         })
 
+
         centerLat = (maxLat + minLat) / 2
-        centerLong = (maxLong + minLong) / 2
-
-        console.log("CLat" + centerLat + " cLng " + centerLong)
-
-
+        centerLng = (maxLng + minLng) / 2
 
         this.setState({
-            maxLat: maxLat,
-            minLat: minLat,
-            maxLong: maxLong,
-            minLong: minLong,
+            maxLat: maxLat + 1,
+            minLat: minLat + 1,
+            maxLng: maxLng + 1,
+            minLng: minLng + 1,
             centerLat: centerLat,
-            centerLong: centerLong,
+            centerLng: centerLng,
             eventLocations: eventLocations
         })
 
     }
 
-    returnEventLocations() {
-        return this.props.eventLocations
-    }
 
 
     render() {
@@ -164,7 +153,7 @@ class HarvestEventList extends React.Component {
 
         return (
 
-            <div>{Header}
+            <div>
 
                 < div className="tile is-vertical " >
                     <div className="tile">
@@ -178,16 +167,15 @@ class HarvestEventList extends React.Component {
                     <div className="harvest-main-div">
                         <div className="harvest-event-left-wrap">
                             <div className="tile is-parent is-vertical">
-                                <article className="tile is-child notification is-info">
+                                <article className="tile is-child havest-event-card">
+
+
+
                                     <div>
-                                        <EventAdd />
+                                        <section className="Events">
+                                            {harvestEventLists}
+                                        </section>
 
-
-                                        <div>
-                                            <section className="Events">
-                                                {harvestEventLists}
-                                            </section>
-                                        </div>
 
                                     </div>
 
@@ -198,12 +186,16 @@ class HarvestEventList extends React.Component {
                         <div className="tile is-parent">
                             <article className="tile is-child ">
                                 <div >
-                                    {/* Commended out so map does not load everytime*/}
+                                    {/* Commended out so map does not load everytime
 
                                     <Map key={this.state.currentRecords}
                                         centerLat={this.state.centerLat}
-                                        centerLong={this.state.centerLong}
-                                        eventLocations={this.state.eventLocations} />
+                                        centerLng={this.state.centerLng}
+                                        eventLocations={this.state.eventLocations}
+                                        maxLat={this.state.maxLat}
+                                        minLat={this.state.minLat}
+                                        maxLng={this.state.maxLng}
+                                        minLng={this.state.minLng} />*/}
                                 </div>
 
                             </article>

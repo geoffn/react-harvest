@@ -11,9 +11,31 @@ export class MapContainer extends React.Component {
         this.state = {
             center: {
                 lat: this.props.centerLat,
-                lng: this.props.centerLong
-            }
+                lng: this.props.centerLng
+            },
+            bounds: null,
+            points:
+                [
+                    {
+                        lat: this.props.maxLat,
+                        lng: this.props.maxLng
+                    },
+                    {
+                        lat: this.props.maxLat,
+                        lng: this.props.minLng
+                    },
+                    {
+                        lat: this.props.minLat,
+                        lng: this.props.maxLng
+                    },
+                    {
+                        lat: this.props.minLat,
+                        lng: this.props.minLng
+                    }
+                ]
         }
+
+
     }
 
 
@@ -23,14 +45,17 @@ export class MapContainer extends React.Component {
         const eventLocations = this.props.eventLocations
 
 
-        if (this.state.center.lat != this.props.centerLat) {
-            this.setState({
-                center: {
-                    lat: this.props.centerLat,
-                    lng: this.props.centerLong
-                }
-            })
+        let bounds = new this.props.google.maps.LatLngBounds();
+
+
+        for (var i = 0; i < this.state.points.length; i++) {
+            bounds.extend(this.state.points[i]);
         }
+
+
+
+
+
 
         const containerStyle = {
             position: 'relative',
@@ -39,22 +64,25 @@ export class MapContainer extends React.Component {
         }
 
 
+
         return (
             <div style={{ height: '10vh', width: '90%' }}>
 
 
                 <Map
+
                     containerStyle={containerStyle}
-                    google={this.props.google} zoom={14}
+                    google={this.props.google} zoom={13}
                     style={{ width: '100%', height: '100' }}
                     initialCenter={
                         this.state.center
                     }
                     center={
                         this.state.center
-                    }>
-                    {console.log("Mlat:" + this.props.centerLat)}
-                    {console.log("MLng:" + this.props.centerLong)}
+                    }
+
+                    bounds={bounds}>
+
                     {eventLocations.map(item => (
                         <Marker
                             key={item.id}

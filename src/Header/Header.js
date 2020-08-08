@@ -20,7 +20,11 @@ const Header = (
             </a>
 
                 <a className="header-link" href="/Event">
-                    Events
+                    Event Search
+                </a>
+
+                <a className="header-link" href="/AddEvent">
+                    Add Event
                 </a>
 
                 <a className="header-link" href="/Foodbank">

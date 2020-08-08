@@ -9,8 +9,8 @@ function HarvestEvent(props) {
 
             <p className="harvest-event-card-title">{props.title}</p>
             {props.description}
-            <p className="harvest-event-card-address">{props.address1}
-                {props.city}, {props.stateRegion} {props.addressCode}
+            <p className="harvest-event-card-address">{props.address1}</p>
+            <p className="harvest-event-card-address">{props.city}, {props.stateRegion} {props.addressCode}
             </p>
 
         </div >
