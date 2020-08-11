@@ -10,7 +10,7 @@ const Header = (
 
 
 
-        <div >
+        <div className="header-heading">
             <div>
 
 
@@ -29,6 +29,9 @@ const Header = (
 
                 <a className="header-link" href="/Foodbank">
                     Foodbanks
+                </a>
+                <a className="header-link" href="/About">
+                    About
                 </a>
 
 

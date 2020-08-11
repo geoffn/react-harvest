@@ -3,9 +3,8 @@ import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../Map/map'
 import Header from '../Header/Header'
-import EventAdd from './AddEvent/AddEvent.js.bak'
-import EventAddFormik from './AddEvent/AddEvent'
-import SearchEvent from './SearchEvents/SearchEvent'
+import EventAdd from './AddEvent/AddEvent'
+import SearchEvent from './SearchEvents/SearchEvent.js'
 
 
 class HarvestEventList extends React.Component {
@@ -186,16 +185,16 @@ class HarvestEventList extends React.Component {
                         <div className="tile is-parent">
                             <article className="tile is-child ">
                                 <div >
-                                    {/* Commended out so map does not load everytime
+                                    {/* Commended out so map does not load everytime*/
 
-                                    <Map key={this.state.currentRecords}
-                                        centerLat={this.state.centerLat}
-                                        centerLng={this.state.centerLng}
-                                        eventLocations={this.state.eventLocations}
-                                        maxLat={this.state.maxLat}
-                                        minLat={this.state.minLat}
-                                        maxLng={this.state.maxLng}
-                                        minLng={this.state.minLng} />*/}
+                                        <Map key={this.state.currentRecords}
+                                            centerLat={this.state.centerLat}
+                                            centerLng={this.state.centerLng}
+                                            eventLocations={this.state.eventLocations}
+                                            maxLat={this.state.maxLat}
+                                            minLat={this.state.minLat}
+                                            maxLng={this.state.maxLng}
+                                            minLng={this.state.minLng} />}
                                 </div>
 
                             </article>

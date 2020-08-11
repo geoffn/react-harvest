@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
 import * as Yup from 'yup'
 import { useHistory } from 'react-router-dom'
+import '../../css/bulma.min.css';
+import '../../css/harvest.css'
 
 function AddEvent(props) {
     // constructor(props) {
@@ -56,7 +58,7 @@ function AddEvent(props) {
 
     const initialValues = {
         eventType: "Harvest",
-        title: "titile",
+        title: "",
         description: "",
         address1: "",
         city: "",
@@ -120,174 +122,187 @@ function AddEvent(props) {
 
 
     return (
+        <div className="harvest-main-div tile is-ancestor">
+            <div className="harvest-event-left-Wrap">
+                <div className="tile is-parent is-vertical">
+                    <article className="tile is-child havest-event-card">
+                        <Formik
+                            initialValues={initialValues}
+                            onSubmit={onSubmit}
+                            validationSchema={validationSchema}
+                        >
+                            <Form id="eventAddForm" className="event-form">
+                                <div>
 
-        <Formik
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            validationSchema={validationSchema}
-        >
-            <Form id="eventAddForm">
-                <div>
+                                    <label className="event-form-select">Event Type:</label><p>
 
-                    <label className="event-form-select">Event Type:</label><p>
-
-                        < Field name="eventType" className="event-form-select event-form-input search-bar-input-border" component="select" placeholder="Type">
-                            <option value="Harvest">Harvest</option>
-                            <option value="Service">Service</option>
-                            <option value="Foodbank">Food Bank</option>
-                        </Field >
-                    </p>
-                    <p><ErrorMessage name="eventType" className="input-error" /></p>
+                                        < Field name="eventType" className="event-form-select event-form-input search-bar-input-border" component="select" placeholder="Type">
+                                            <option value="Harvest">Harvest</option>
+                                            <option value="Service">Service</option>
+                                            <option value="Foodbank">Food Bank</option>
+                                        </Field >
+                                    </p>
+                                    <p><ErrorMessage name="eventType" className="input-error" /></p>
 
 
-                </div>
-                <div>
+                                </div>
+                                <div>
 
-                    <label className="event-form-select">Title:
+                                    <label className="event-form-select">Title:
                         <Field
-                            className="input event-form-input search-bar-input-border"
-                            type="text"
-                            name="title"
-                            placeholder="Brief description"
-                        />
-                    </label>
-                    <p><ErrorMessage name='title' className="input-error" /></p>
+                                            className="input event-form-input search-bar-input-border"
+                                            type="text"
+                                            name="title"
+                                            placeholder="Brief description"
+                                        />
+                                    </label>
+                                    <p><ErrorMessage name='title' className="input-error" /></p>
 
 
-                </div>
-                <div>
-                    <label className="event-form-select">Descirption:
+                                </div>
+                                <div>
+                                    <label className="event-form-select">Descirption:
                             <Field className="textarea input event-form-input search-bar-input-border" name="description" placeholder="Detailed Description" ></Field>
-                    </label>
-                    <p><ErrorMessage name="eventType" className="input-error" /></p>
+                                    </label>
+                                    <p><ErrorMessage name="eventType" className="input-error" /></p>
 
-                </div>
+                                </div>
 
-                <div>
-                    <label className="event-form-select">Address:
+                                <div>
+                                    <label className="event-form-select">Address:
                             <Field
-                            className="input event-form-input search-bar-input-border"
-                            type="text" name="address1"
-                            placeholder="Street Address"
-                        />
+                                            className="input event-form-input search-bar-input-border"
+                                            type="text" name="address1"
+                                            placeholder="Street Address"
+                                        />
 
-                    </label>
-                    <p><ErrorMessage name="address1" className="input-error" /></p>
+                                    </label>
+                                    <p><ErrorMessage name="address1" className="input-error" /></p>
 
-                </div>
-                <div>
+                                </div>
+                                <div>
 
-                    <label className="event-form-select">City:
+                                    <label className="event-form-select">City:
                             <Field
-                            className="input event-form-input search-bar-input-border"
-                            type="text" name="city"
-                            placeholder="City"
-                        />
-                    </label>
-                    <p><ErrorMessage name="city" className="input-error" /></p>
+                                            className="input event-form-input search-bar-input-border"
+                                            type="text" name="city"
+                                            placeholder="City"
+                                        />
+                                    </label>
+                                    <p><ErrorMessage name="city" className="input-error" /></p>
 
-                </div>
-                <div >
-                    <label className="event-form-select" >State:
+                                </div>
+                                <div >
+                                    <label className="event-form-select" >State:
                             </label><p>
-                        < Field as="select" name="stateRegion" className="event-form-select event-form-input search-bar-input-border" placeholder="State" >
-                            <option className="event-form-select" value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DE">Delaware</option>
-                            <option value="DC">District Of Columbia</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="IA">Iowa</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="ME">Maine</option>
-                            <option value="MD">Maryland</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MT">Montana</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NY">New York</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                        </Field >
-                    </p>
-                    <p><ErrorMessage name="stateRegion" className="input-error" /></p>
+                                        < Field as="select" name="stateRegion" className="event-form-select event-form-input search-bar-input-border" placeholder="State" >
+                                            <option className="event-form-select" value="AL">Alabama</option>
+                                            <option value="AK">Alaska</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="AR">Arkansas</option>
+                                            <option value="CA">California</option>
+                                            <option value="CO">Colorado</option>
+                                            <option value="CT">Connecticut</option>
+                                            <option value="DE">Delaware</option>
+                                            <option value="DC">District Of Columbia</option>
+                                            <option value="FL">Florida</option>
+                                            <option value="GA">Georgia</option>
+                                            <option value="HI">Hawaii</option>
+                                            <option value="ID">Idaho</option>
+                                            <option value="IL">Illinois</option>
+                                            <option value="IN">Indiana</option>
+                                            <option value="IA">Iowa</option>
+                                            <option value="KS">Kansas</option>
+                                            <option value="KY">Kentucky</option>
+                                            <option value="LA">Louisiana</option>
+                                            <option value="ME">Maine</option>
+                                            <option value="MD">Maryland</option>
+                                            <option value="MA">Massachusetts</option>
+                                            <option value="MI">Michigan</option>
+                                            <option value="MN">Minnesota</option>
+                                            <option value="MS">Mississippi</option>
+                                            <option value="MO">Missouri</option>
+                                            <option value="MT">Montana</option>
+                                            <option value="NE">Nebraska</option>
+                                            <option value="NV">Nevada</option>
+                                            <option value="NH">New Hampshire</option>
+                                            <option value="NJ">New Jersey</option>
+                                            <option value="NM">New Mexico</option>
+                                            <option value="NY">New York</option>
+                                            <option value="NC">North Carolina</option>
+                                            <option value="ND">North Dakota</option>
+                                            <option value="OH">Ohio</option>
+                                            <option value="OK">Oklahoma</option>
+                                            <option value="OR">Oregon</option>
+                                            <option value="PA">Pennsylvania</option>
+                                            <option value="RI">Rhode Island</option>
+                                            <option value="SC">South Carolina</option>
+                                            <option value="SD">South Dakota</option>
+                                            <option value="TN">Tennessee</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="UT">Utah</option>
+                                            <option value="VT">Vermont</option>
+                                            <option value="VA">Virginia</option>
+                                            <option value="WA">Washington</option>
+                                            <option value="WV">West Virginia</option>
+                                            <option value="WI">Wisconsin</option>
+                                            <option value="WY">Wyoming</option>
+                                        </Field >
+                                    </p>
+                                    <p><ErrorMessage name="stateRegion" className="input-error" /></p>
 
-                </div>
-                <div >
+                                </div>
+                                <div >
 
-                    <label className="event-form-select">Zip Code
+                                    <label className="event-form-select">Zip Code
                             <Field
-                            className="input event-form-input search-bar-input-border"
-                            type="text"
-                            name="addressCode"
-                            placeholder="Zip Code"
-                        />
-                    </label>
-                    <p><ErrorMessage name="addressCode" className="input-error" /></p>
+                                            className="input event-form-input search-bar-input-border"
+                                            type="text"
+                                            name="addressCode"
+                                            placeholder="Zip Code"
+                                        />
+                                    </label>
+                                    <p><ErrorMessage name="addressCode" className="input-error" /></p>
 
-                </div>
-                <div>
-                    <label className="event-form-select">Email:
+                                </div>
+                                <div>
+                                    <label className="event-form-select">Email:
                                     <Field
-                            className="input event-form-input search-bar-input-border"
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                        />
-                    </label>
-                    <p><ErrorMessage name="email" className="input-error" /></p>
+                                            className="input event-form-input search-bar-input-border"
+                                            type="email"
+                                            placeholder="Email"
+                                            name="email"
+                                        />
+                                    </label>
+                                    <p><ErrorMessage name="email" className="input-error" /></p>
 
 
 
+                                </div>
+                                <div ><p>&nbsp;</p>
+                                    <button className="search-bar-button search-bar-button-border">Submit</button>
+
+
+                                    <button className="search-bar-button search-bar-button-border" >Cancel</button>
+
+                                </div>
+
+                                <p>&nbsp;</p>
+
+
+                            </Form>
+                        </Formik>
+                    </article>
                 </div>
-                <div ><p>&nbsp;</p>
-                    <button className="search-bar-button search-bar-button-border">Submit</button>
-
-
-                    <button className="search-bar-button search-bar-button-border" >Cancel</button>
-
-                </div>
-
-                <p>&nbsp;</p>
-
-
-            </Form>
-        </Formik>
-
+            </div>
+            <div className="tile is-parent">
+                <article className="tile is-child ">
+                    <div >
+                        <p>Please make sure to add valid contact information.  Details will only be provided once a volunteer signs sup.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
 
 
 

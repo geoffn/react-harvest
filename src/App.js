@@ -5,8 +5,8 @@ import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import EventLayout from './Events/EventLayout'
 import FoodbankLayout from './Foodbanks/FoodbankLayout'
 import FourZeroFour from './FourZeroFour'
-import SearchEvent from './Events/SearchEvents/SearchEvent'
 import AddEventLayout from './Events/AddEvent/AddEventLayout'
+import AboutLayout from './MiscComponents/AboutLayout';
 
 function App() {
     return (
@@ -17,6 +17,7 @@ function App() {
                 <Route path="/Event" component={EventLayout} />
                 <Route path="/AddEvent" component={AddEventLayout} />
                 <Route path='/Foodbank' component={FoodbankLayout} />
+                <Route path='/About' component={AboutLayout} />
                 <Route component={FourZeroFour} />
             </Switch>
         </Router>
