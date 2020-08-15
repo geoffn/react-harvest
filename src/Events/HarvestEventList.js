@@ -20,52 +20,9 @@ class HarvestEventList extends React.Component {
             centerLat: 0,
             centerLng: 0
         }
-        //this.onChange = this.onChange.bind(this)
-        //this.onSearchCallback = this.onSearchCallback.bind(this)
 
     }
 
-    componentDidMount() {
-        this._isMounted = true
-        let baseURL = 'http://localhost:3001/event'
-
-        //If search criteria is provided then search
-
-
-        axios.get(baseURL)
-            .then(res => {
-                if (this._isMounted) {
-                    //console.log(res.data)
-                    //console.log(res.data.result)
-                    //this.setHarvestEventList()
-                    this.setState({ harvestEvents: res.data.result })
-                    this.harvestEventListMaps()
-                }
-            })
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false
-    }
-
-    onClickSearch = async () => {
-        const eventSearch = this.state.eventSearch
-
-        let baseURL = 'http://localhost:3001/event/search/' + eventSearch
-
-        //If search criteria is provided then search
-
-        let results = await axios.get(baseURL)
-            .catch((e) => {
-                console.log(e)
-            })
-
-        this.setState({ harvestEvents: results.data.results }, () => {
-            this.harvestEventListMaps()
-        })
-
-
-    }
 
     onSearchCallback = (searchResults) => {
 
@@ -80,10 +37,10 @@ class HarvestEventList extends React.Component {
 
 
 
-    //As the search form is changed, update state.
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
+    // //As the search form is changed, update state.
+    // onChange = (e) => {
+    //     this.setState({ [e.target.name]: e.target.value })
+    // }
 
 
 

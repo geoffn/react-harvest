@@ -21,7 +21,7 @@ body{
     
 }
 a.header-link:hover{
-    color: #11999e;
+    color: white;
     text-decoration: underline;
     
 }
@@ -58,7 +58,10 @@ a.header-link:visited{
     width: 400px;
     border: 2px solid #169e11
 }
-
+.search-bar-select {
+    width: 200px;
+    border: 2px solid #169e11
+}
 .event-form-input {
     border: 1px solid #11999e
 }
@@ -160,5 +163,8 @@ a.header-link:visited{
 .event-form{
     width: 500px;
 }
-
+.social-icon{
+    width:30px;
+    margin-right: 20px;
+}
 

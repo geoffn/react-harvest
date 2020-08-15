@@ -164,7 +164,7 @@ function AddEvent(props) {
                                     <label className="event-form-select">Descirption:
                             <Field className="textarea input event-form-input search-bar-input-border" name="description" placeholder="Detailed Description" ></Field>
                                     </label>
-                                    <p><ErrorMessage name="eventType" className="input-error" /></p>
+                                    <p><ErrorMessage name="eventDescription" className="input-error" /></p>
 
                                 </div>
 

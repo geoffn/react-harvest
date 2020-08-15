@@ -27,8 +27,8 @@ const Header = (
                     Add Event
                 </a>
 
-                <a className="header-link" href="/Foodbank">
-                    Foodbanks
+                <a className="header-link" href="/Organization">
+                    Organizations
                 </a>
                 <a className="header-link" href="/About">
                     About

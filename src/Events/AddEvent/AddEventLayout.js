@@ -8,6 +8,7 @@ const AddEventLayout = (props) => (
     <Aux>
         {header}
         <p>&nbsp;</p>
+
         <AddEvent targeEvent="1" />
     </Aux>
 )
