@@ -107,10 +107,13 @@ a.header-link:visited{
 }
 .harvest-event-card
 {
-    border: 0px solid;
+    gap: normal;
+    line-height: 24px;
+    color: hsl(0, 0%, 29%);
     border-radius: 5px;
-    box-shadow: 2px 2px #169e11;
-    
+    box-shadow: hsl(118, 81%, 34%) 5px 3px 7px 3px;
+    margin: 8px 0px 0px;
+    padding: 6px 0px 0px 5px;    
 }
 .harvest-event-card-title{
     font-size: 30px;
@@ -156,6 +159,9 @@ a.header-link:visited{
     min-height: 500px;
     
 }
+.event-map{
+    position: fixed;
+}
 .bio-image{
     height: 300px;
 
@@ -166,5 +172,83 @@ a.header-link:visited{
 .social-icon{
     width:30px;
     margin-right: 20px;
+}
+.organization-main-content{
+    width:70%;
+    float:left
+}
+.organization-phone-main{
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+a.organization-phone-main{
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+a.organization-phone-main:link{
+    font-size: 12px;
+    text-decoration: none;
+}
+a.organization-phone-main:hover{
+    text-decoration: underline;
+}
+.organization-events{
+    background-color: hsl(118, 81%, 34%);
+    float: right
+}
+.organization-container-main{
+
+    display: flex;
+    gap: normal;
+    line-height: 24px;
+    color: hsl(0, 0%, 29%);
+    border-radius: 5px;
+    box-shadow: hsl(118, 81%, 34%) 5px 3px 7px 3px;
+    margin: 8px 0px 0px;
+    padding: 6px 0px 0px 5px;
+}
+.organization-container-main div{
+    
+}
+.organization-box-left{
+    flex-direction: column;
+    margin: 12px;
+    padding-right: 8px;
+}
+.organization-box-name{
+    font-size: 24px;
+}
+.organization-box-address{
+
+}
+.organization-url{
+    text-decoration: none;
+    color: black;
+}
+.organization-box-social{
+
+}
+.organization-box-right{
+    flex-direction: column;
+    align-items: center;
+}
+.organization-box-events{
+    flex: 4;
+    align-items: center;
+    text-align: center;
+    background-color: #169e11;
+    color: white;
+
+}
+.organization-box-phone{
+    flex: 1;
+}
+a.organization-events-link{
+    text-decoration: none;
+    font-size: 50px;
+    color: white;
+    
 }
 

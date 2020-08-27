@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/bulma.min.css';
 import './css/harvest.css'
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import EventLayout from './Events/EventLayout'
 import OrganizationLayout from './Organizations/OrganizationLayout'
 import FourZeroFour from './FourZeroFour'

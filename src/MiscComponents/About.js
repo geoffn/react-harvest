@@ -26,7 +26,7 @@ const About = (
                 <h3>Geoff Nelson</h3>
                 <a href="https://www.linkedin.com/in/geoff-nelson-9445a31/">Linked In</a>
                 <p>
-                    <img src="/img/g1.jpeg" className="bio-image" />
+                    <img src="/img/g1.jpeg" className="bio-image" alt="Geoff Nelson" />
                 </p>
 
 

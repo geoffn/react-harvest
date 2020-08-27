@@ -1,9 +1,6 @@
 import React from 'react';
-import axios from 'axios'
 import HarvestEvent from './HarvestEvent'
 import Map from '../Map/map'
-import Header from '../Header/Header'
-import EventAdd from './AddEvent/AddEvent'
 import SearchEvent from './SearchEvents/SearchEvent.js'
 
 
@@ -141,7 +138,7 @@ class HarvestEventList extends React.Component {
 
                         <div className="tile is-parent">
                             <article className="tile is-child ">
-                                <div >
+                                <div className="event-map">
                                     {/* Commended out so map does not load everytime*/
 
                                         <Map key={this.state.currentRecords}

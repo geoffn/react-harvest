@@ -1,59 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { useHistory } from 'react-router-dom'
 import '../../css/bulma.min.css';
 import '../../css/harvest.css'
 
 function AddEvent(props) {
-    // constructor(props) {
-    //     super(props)
 
-    //     this.state = {
-    //         eventAddVisible: false,
-    //         stateRegion: "AL",
-    //         eventType: "Harvest",
-
-
-    //     }
-
-    //     this.handleClick = this.handleClick.bind(this)
-    //     this.handleCancel = this.handleCancel.bind(this)
-
-    // }
-    // const loadInitialValues = () => {
-
-    //     let initEvent = null
-    //     console.log("loading initial values")
-    //     console.log(props.targetEvent)
-    //     if (props.targetEvent) {
-    //         initEvent = {
-    //             eventType: "Harvest",
-    //             title: "Title of Event",
-    //             description: "",
-    //             address1: "",
-    //             city: "",
-    //             stateRegion: "",
-    //             addressCode: "",
-    //             email: ""
-    //         }
-    //     } else {
-    //         initEvent = {
-    //             eventType: "Harvest",
-    //             title: "else title",
-    //             description: "",
-    //             address1: "",
-    //             city: "",
-    //             stateRegion: "",
-    //             addressCode: "",
-    //             email: ""
-    //         }
-    //     }
-
-    //     return initEvent
-
-    // }
 
 
     const initialValues = {
@@ -114,10 +67,7 @@ function AddEvent(props) {
 
 
     }
-    //Update the state with the new form vaules.
 
-
-    let isVisible = props.isVisible
 
 
 

@@ -1,8 +1,5 @@
 import React from 'react';
-import axios from 'axios'
-import Foodbank from './Organization'
 import Map from '../Map/map'
-import header from '../Header/Header'
 import SearchOrganization from './SearchOrganization'
 import Organization from './Organization'
 
@@ -27,23 +24,22 @@ class OrganizationList extends React.Component {
     }
 
     render() {
-        const socialItems = (socials) => {
-            console.log(socials)
-            return socials.map((social => <div>{social.socialLink}</div>))
-        }
+
         const organizationLists = this.state.organizations.map(org => {
             return (
                 <Organization
                     key={org._id}
+                    id={org._id}
                     name={org.name}
                     address1={org.address1}
                     city={org.city}
                     stateRegion={org.stateRegion}
                     addressCode={org.addressCode}
                     url={org.url}
-                    phone={org.phone}
+                    phones={org.phones}
                     social={org.social}
                     type={org.type}
+                    events={org.events}
                 />
 
 
