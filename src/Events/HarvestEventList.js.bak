@@ -130,9 +130,7 @@ class HarvestEventList extends React.Component {
 
                                     <div>
                                         <section className="Events">
-                                        <div class="container-eventlist">
                                             {harvestEventLists}
-                                        </div>
                                         </section>
 
 

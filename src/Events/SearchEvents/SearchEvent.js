@@ -25,7 +25,7 @@ function SearchEvent(props) {
 
         console.log(results.data.results)
 
-        props.searchCallback(results.data.results)
+        props.searchCallback(results.data.results, values.eventSearch)
 
     }
 

@@ -1,26 +1,24 @@
-import React from 'react';
-import Map from '../Map/map'
-import SearchOrganization from './SearchOrganization'
-import Organization from './Organization'
+import React from 'react'
+import SearchOrgEvents from './SearchOrganization'
 
 
+//Render Organization passed in as Org
 
-class OrganizationList extends React.Component {
+//render events from list
+class OrganizationEvents extends React.Component {
+
     constructor(props) {
         super(props)
 
-        this.state = {
-            organizations: [],
-            organizationSearch: [],
-            currentRecords: 0
-        }
+        this.setState.orgID = this.props.match.params.ordId
+
+        const searchResults = new SearchOrgEvents.SearchByOrg(this.props.match.params.orgId)
+
     }
 
-    onSearchCallback = (searchResults) => {
-
+    searchCallback = (searchResults) => {
         this.setState({ organizations: searchResults })
         console.log(searchResults)
-
     }
 
     render() {
@@ -84,5 +82,3 @@ class OrganizationList extends React.Component {
 
 
 }
-
-export default OrganizationList

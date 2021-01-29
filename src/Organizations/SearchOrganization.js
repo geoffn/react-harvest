@@ -48,7 +48,7 @@ function SearchOrganization(props) {
             <Form>
 
                 <div className="search-bar">
-                    <Field as="select" className="search-bar-select search-bar-input-border"
+                    <Field as="select" className="search-bar-select-gn"
                         name="organizationType">
                         <option value="All">All</option>
                         <option value="Harvest">Harvest</option>

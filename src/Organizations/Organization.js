@@ -16,13 +16,17 @@ const Organization = (props) => (
 
     <div className="organization-container-main">
         <div className="organization-box-left">
+            <a className="organization-url" href={props.url}><img className="organization-container-main-image" src="/img/bfb.jpeg" atl="bfb" /></a>
+        </div>
+        <div className="organization-box-left">
             <div className="organization-box-name">
-                {props.name}
+
+                <a className="organization-url" href={props.url}>{props.name}</a>
             </div>
             <div className="organization-box-address">
                 {props.address1}
                 <p>{props.city}, {props.stateRegion} {props.addressCode}</p>
-                <p><a className="organization-url" href={props.url}>{props.url}</a></p>
+
             </div>
             <div className="organization-box-social">
 
